@@ -2,7 +2,7 @@
 
 
     #previews {
-        
+
         display:none;
     }
 
@@ -53,11 +53,11 @@ a:hover{
     margin-top: 10px;
     margin-bottom: 100px;
     margin-left:29%;
-    
+
 }
 
-   
-    
+
+
     #previews .mini {
         width: 250px;
         height: 250px;
@@ -70,11 +70,11 @@ a:hover{
             opacity: 0.4;
             filter: alpha(opacity=40);
         }
-.border {
-    
+/*.border {
+
     list-style: none;
     padding: 0;
-    
+
 }
 
     .border li {
@@ -89,7 +89,7 @@ a:hover{
         transition: 0.3s all linear;
     }
 
-        
+
         .border li:nth-child(2) {
             border-color: #8bc63e;
         }
@@ -143,9 +143,55 @@ a:hover{
 
         .border li ul li span {
             visibility: hidden;
+        }*/
+
+        .push {
+          list-style: none;
+          font-family: "Lucida Sans";
+        }
+        .push li {
+          position: relative;
+          padding: 20px 0 20px 40px;
+          color: #D29D25;
+          font-variant: small-caps;
+          font-weight: bold;
+          cursor: pointer;
+        }
+        .push li:before {
+          position: absolute;
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: #4F5151;
+          content: "";
+          left: 0;
+          transition: .3s ease-in-out;
+          top: 27px;
+        }
+        .push li:after {
+          position: absolute;
+          border-left: 1px dotted #4F5151;
+          width: 1px;
+          bottom: -12px;
+          content: "";
+          left: 3px;
+          top: 48px;
+        }
+        .push li:hover:before{box-shadow: 0 0 0 10px rgba(0,0,0,.2)}
+        .push li:last-child:after {content: none;}
+
+        .push li ul li:hover span {
+            visibility: visible;
+            text-align: right;
+            display: block;
+            width: 100%;
         }
 
+        .push li ul li span {
+            visibility: hidden;
+          }
 
+.im-centered{margin-left:60%; max-width: 1200px;}
 
 .img {
     float: right;
@@ -177,7 +223,7 @@ font-size:50px;
 body {
     background-repeat: repeat;
     font-family: 'Roboto Condensed', sans-serif;
-    
+
     font-size: 15px;
     background-color: #2c3e50;
 
@@ -220,7 +266,7 @@ input, button {
     text-align :center;
 }
 
-   /* Header */
+    /*Header
 
 header.page-header {
     position: relative;
@@ -233,15 +279,15 @@ header.page-header {
     background-size: 20px 20px;
     box-shadow: 0 0 5px 0 #333333;
     font-family: 'Trebuchet MS';
-}
+}*/
 
 button {
-   
+
     background: transparent 70% ;
     font-family: 'Trebuchet MS';
     font-weight:bold;
     font-size:16pt;
- 
+
 }
 
 .logo {
@@ -275,7 +321,7 @@ main {
     color: black;
     background-color:white;
      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAMAAAApB0NrAAAABlBMVEX///+pqalTpKl9AAAAAnRSTlMAGovxNEIAAAAdSURBVDjLY2AAAUaG4UYxDDsfjfp91O+jfqfE7wCzpQCw/dq+qQAAAABJRU5ErkJggg==");
-   
+
 }
 
 main::after {
@@ -415,7 +461,7 @@ footer.page-footer {
 
 }
 .helpbox {
-    
+
     height:40px;
     width:70px;
     background-color:black;
