@@ -245,8 +245,8 @@ function changeImage(image) {
 
 function showText() {
     var counter = 0;
-    var _len;
-    for (counter = 0, _len = 6; counter < _len; counter++) {
+    var _len=imagesArray.length;
+    for (counter = 0; counter < _len; counter++) {
 
 
 
@@ -280,7 +280,7 @@ $(document).ready(function () {
     var _i, _len, image;
     /*imagesArray = ["file:///D:/Puzzle-4x4/GGPK/imagesPuzzles/bagach.jpg", 'file:///D:/Puzzle-4x4/GGPK/imagesPuzzles/applespas.jpg', 'file:///D:/Puzzle-4x4/GGPK/imagesPuzzles/dojinki.jpg', 'file:///D:/Puzzle-4x4/GGPK/imagesPuzzles/kupala.jpg', 'file:///D:/Puzzle-4x4/GGPK/imagesPuzzles/maslenitsa.jpg', 'file:///D:/Puzzle-4x4/GGPK/imagesPuzzles/pasha.jpg'];*/
     imagesArray = ["imagesPuzzles/bagach.jpg", 'imagesPuzzles/applespas.jpg', 'imagesPuzzles/dojinki.jpg', 'imagesPuzzles/kupala.jpg', 'imagesPuzzles/maslenitsa.jpg', 'imagesPuzzles/pasha.jpg'];
-
+    imagesMinArray = ["imagesPuzzlesMin/bagach.jpg", 'imagesPuzzlesMin/applespas.jpg', 'imagesPuzzlesMin/dojinki.jpg', 'imagesPuzzlesMin/kupala.jpg', 'imagesPuzzlesMin/maslenitsa.jpg', 'imagesPuzzlesMin/pasha.jpg']; //миниатюры
     load(rows, columns, imagesArray[0]);
     puzzleImage = imagesArray[0];
 
@@ -289,8 +289,8 @@ $(document).ready(function () {
     randomize(rows, columns, 100);
 
 
-    for (_i = 0, _len = imagesArray.length; _i < _len; _i++) {
-        image = imagesArray[_i];
+    for (_i = 0, _len = imagesMinArray.length; _i < _len; _i++) {
+        image = imagesMinArray[_i];
         $('#previews').append('<img src="' + image + '" class="mini"/>');
     }
 
@@ -299,8 +299,12 @@ $(document).ready(function () {
      $('.mini').bind('click', function (event) {
 
 
-        changeImage(event.target.src);
-
+       var counter = 0;
+       var _len=imagesArray.length;
+       for (counter = 0; counter < _len; counter++) {
+       if (checkImage(event.target.src,imagesArray[counter]))
+        changeImage(imagesArray[counter]);
+                  }
     });
 
     $('#displayHelp').change(function () {
@@ -311,15 +315,15 @@ $(document).ready(function () {
 
         if (displayHelp) {
             $('#canvasTable').css("display", "none");
-            $('.answer').append('<span class="windiv"><img src="' + puzzleImage + '"/>');
-            $('.windiv').css('margin', '41.2%');
+            $('.answer').append('<div class="windiv container"><div class="row"><div class="col-md-2 offset-md-4"><img src="' + puzzleImage + '"></div></div></div>');
+            //$('.windiv').css('margin', '41.2%');
 
         }
         else
         {
             $('#canvasTable').css("display", "table");
-            $('span.windiv').remove();
-            $('.windiv').css('margin', '0');
+            $('div.windiv').remove();
+          //  $('.windiv').css('margin', '0');
         }
 
     });
