@@ -6,7 +6,7 @@
         var _rows = rows, _columns = columns;
         var _special = special;
         var _img = img;
-
+        
 
         this.changePosition = function (posX, posY) {
             _posX = posX;
@@ -91,7 +91,7 @@ function createTable(rows, columns) {
             border: 0,
             cellspacing: 0,
             cellpadding: 0
-
+           
         });
     for (var i = 0; i < rows; ++i) {
         var tr = $('<tr></tr>');
@@ -172,7 +172,7 @@ function randomize(rows, columns, iteration) {
             intervalArray.forEach(function (interval, i, intervalArray) {
                 clearInterval(interval);
             });
-
+                
     }, 7))
 }
 
@@ -191,17 +191,17 @@ function load(rows, columns, url) {
 
     $('.imagePart').click(function () {
 
-
+       
         if (clickOn(this.id)) {
             setClicks(clicks + 1);
             if (checkWin(rows, columns)) {
-
+                
                      showText();
                         setClicks(0);
-
+                    
                 }
             }
-
+        
     });
 }
 
@@ -216,15 +216,15 @@ function checkWin(rows, columns) {
 function changeImage(image) {
     var rows = 4, columns = 4;
 
-
+    
     $('div.banner').remove();
     $('span.windiv').remove();
 
     $('#canvasTable').css("display", "table");
     $(".text" + imagesource).css("display", "none");
     $('#puzzle').remove('margin');
-
-
+    
+ 
     $('#maincontrol').css('text-align', 'center');
     $('#previews').css("display", "none");
     $('.maintext').css('display', 'block');
@@ -239,29 +239,26 @@ function changeImage(image) {
     setClicks(0);
     butWin = false;
     randomize(rows, columns, 100);
-
-
+    
+    
 }
 
 function showText() {
     var counter = 0;
     var _len;
     for (counter = 0, _len = 6; counter < _len; counter++) {
-
-
-
-        if (checkImage(puzzleImage,imagesArray[counter])) {
+        if (puzzleImage == imagesArray[counter]) {
             $('.answer').append('<span class="windiv"><img src="' + puzzleImage + '"/><div class="banner"> Пабеда!</div></span>');
-
+			
             $(".text" + counter).css("display", "block");
             imagesource = counter;
             $('#puzzle').remove('margin');
-
+            
             $('.maintext').css("margin-left", "5px");
             $('#canvasTable').css("display", "none");
-
-
-
+            
+            
+            
             $('.maintext').css('display', 'none');
             $('.maintext1').css('display', 'none');
             $('#displayHelp').css('display', 'none');
@@ -278,14 +275,12 @@ $(document).ready(function () {
 
     var rows = 4, columns = 4;
     var _i, _len, image;
-    /*imagesArray = ["file:///D:/Puzzle-4x4/GGPK/imagesPuzzles/bagach.jpg", 'file:///D:/Puzzle-4x4/GGPK/imagesPuzzles/applespas.jpg', 'file:///D:/Puzzle-4x4/GGPK/imagesPuzzles/dojinki.jpg', 'file:///D:/Puzzle-4x4/GGPK/imagesPuzzles/kupala.jpg', 'file:///D:/Puzzle-4x4/GGPK/imagesPuzzles/maslenitsa.jpg', 'file:///D:/Puzzle-4x4/GGPK/imagesPuzzles/pasha.jpg'];*/
-    imagesArray = ["imagesPuzzles/bagach.jpg", 'imagesPuzzles/applespas.jpg', 'imagesPuzzles/dojinki.jpg', 'imagesPuzzles/kupala.jpg', 'imagesPuzzles/maslenitsa.jpg', 'imagesPuzzles/pasha.jpg'];
-
+    imagesArray = ["file:///D:/Puzzle-4x4/GGPK/imagesPuzzles/bagach.jpg", 'file:///D:/Puzzle-4x4/GGPK/imagesPuzzles/applespas.jpg', 'file:///D:/Puzzle-4x4/GGPK/imagesPuzzles/dojinki.jpg', 'file:///D:/Puzzle-4x4/GGPK/imagesPuzzles/kupala.jpg', 'file:///D:/Puzzle-4x4/GGPK/imagesPuzzles/maslenitsa.jpg', 'file:///D:/Puzzle-4x4/GGPK/imagesPuzzles/pasha.jpg'];
     load(rows, columns, imagesArray[0]);
     puzzleImage = imagesArray[0];
-
+    
     imagesource = 0;
-
+    
     randomize(rows, columns, 100);
 
 
@@ -313,7 +308,7 @@ $(document).ready(function () {
             $('#canvasTable').css("display", "none");
             $('.answer').append('<span class="windiv"><img src="' + puzzleImage + '"/>');
             $('.windiv').css('margin', '41.2%');
-
+            
         }
         else
         {
@@ -346,10 +341,10 @@ $(document).ready(function () {
         $('#displayHelp1').css('display', 'none');
         $('#randomize').css("display", "none");
         $('#win').css("display", "none");
-
+       
     });
 
-
+    
 });
 
 Firstload = function () {
@@ -364,17 +359,4 @@ Firstload = function () {
     $('#randomize').css("display", "none");
     $('#win').css("display", "none");
 
-}
-
-function checkImage(img1,img2) {
-
- var pathImg1=img1.substring(img1.lastIndexOf("/"));
- var pathImg2=img2.substring(img2.lastIndexOf("/"));
-
- if (pathImg1===pathImg2){
- return true;
-  }
- else {
-   return false;
-  }
 }
